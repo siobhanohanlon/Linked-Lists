@@ -9,11 +9,11 @@ typedef struct node {
 main()
 {
 	nodeT* headPtr = NULL; //indicates that the list is empty..
-	int choice;
+	int choice, length = 0;
 	nodeT* newNode;
 	nodeT* temp;
 
-	printf("1: Add Element to Start of List\t\t2:Add Element to End of List\t\t3: Display List\t\t-1: Exit\nPlease Enter Choice: ");
+	printf("1: Add Element to Start of List\t\t2:Add Element to End of List\t\t3: Display List\n4: Delete an Item from List\t\t5: Display the Length of List\t\t6: Search List\t\t-1: Exit\nPlease Enter Choice: ");
 	scanf("%d", &choice);
 
 	while (choice != -1)
@@ -75,7 +75,29 @@ main()
 			}
 		}
 
-		printf("\n1: Add Element to Start of List\t\t2:Add Element to End of List\t\t3: Display List\t\t-1: Exit\nPlease Enter Choice: ");
+		else if (choice == 4)
+		{
+
+		}
+
+		else if (choice == 5)
+		{
+			temp = headPtr;
+
+			while (temp != NULL)
+			{
+				length++;
+				temp = temp->NEXT;
+			}
+			printf("\nLength of List is %d\n", length);
+		}
+
+		printf("\n1: Add Element to Start of List\t\t2:Add Element to End of List\t\t3: Display List\n4: Delete an Item from List\t\t5: Display the Length of List\t\t6: Search List\t\t-1: Exit\nPlease Enter Choice: ");
 		scanf("%d", &choice);
 	}
+}
+
+void searchList()
+{
+
 }
