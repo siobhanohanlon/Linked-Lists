@@ -61,16 +61,17 @@ main()
 			}
 
 			temp->NEXT = newNode;
-			newNode-> = NULL;
+			newNode->NEXT = NULL;
 		}
 
 		else if (choice == 3)
 		{
 			temp = headPtr;
 
-			while (temp)
+			while (temp != NULL)
 			{
-
+				printf("The Value of this Node is %d\n", temp->data);
+				temp = temp->NEXT;
 			}
 		}
 
