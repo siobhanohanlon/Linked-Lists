@@ -6,7 +6,7 @@ typedef struct node {
 	struct node* NEXT;
 }nodeT;
 
-void displayList();
+void displayList(nodeT);
 
 main()
 {
@@ -68,13 +68,7 @@ main()
 
 		else if (choice == 3)
 		{
-			temp = headPtr;
-
-			while (temp != NULL)
-			{
-				printf("1. Value of this Node is %d\n", temp->data);
-				temp = temp->NEXT;
-			}
+			displayList(headPtr);
 		}
 
 		else if (choice == 4)
@@ -96,29 +90,7 @@ main()
 
 		else if (choice == 6)
 		{
-			printf("Please Enter Int you want to Search for: ");
-			scanf("%d", &search);
-
-			temp = headPtr;
-			length = 1;
-			found = 0;
-
-			while (temp != NULL && found != 1)
-			{
-				if (search == temp->data)
-				{
-					found = 1;
-					printf("\nInt %d has been found at Location %d\n", search, length);
-				}
-
-				length++;
-				temp = temp->NEXT;
-			}
-			
-			if (found == 0)
-			{
-				printf("\nInt %d was not found\n", search);
-			}
+			searchList(headPtr);
 		}
 
 		printf("\n1: Add Element to Start of List\t\t2:Add Element to End of List\t\t3: Display List\n4: Delete an Item from List\t\t5: Display the Length of List\t\t6: Search List\t\t-1: Exit\nPlease Enter Choice: ");
@@ -126,7 +98,39 @@ main()
 	}
 }
 
-void searchList()
+void displayList(nodeT* top)
 {
+	nodeT* temp = top;
 
+	while (temp != NULL)
+	{
+		printf("1. Value of this Node is %d\n", temp->data);
+		temp = temp->NEXT;
+	}
+}
+
+void searchList(nodeT* headPtr)
+{
+	nodeT* temp = headPtr;
+	int length = 1, found = 0, search;
+
+	printf("Please Enter Int you want to Search for: ");
+	scanf("%d", &search);
+
+	while (temp != NULL && found != 1)
+	{
+		if (search == temp->data)
+		{
+			found = 1;
+			printf("\nInt %d has been found at Location %d\n", search, length);
+		}
+
+		length++;
+		temp = temp->NEXT;
+	}
+
+	if (found == 0)
+	{
+		printf("\nInt %d was not found\n", search);
+	}
 }
